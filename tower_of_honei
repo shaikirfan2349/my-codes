@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+
+void TOH(int num,char src,char aux, char des)
+{
+    if(num==0)
+    {
+        return;
+    }
+    if(num==1)
+    {
+        cout<<"Disk "<<1<<" moved from "<< src << " to " << des <<endl;
+        return;
+    }
+    else{
+        TOH(num-1,src,des,aux);
+        cout<<"Disk "<< num << " moved from "<< src << " to "<< des << endl;
+        TOH(num-1,aux,src,des);
+        return;
+    }
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    TOH(n,'A','B','C');
+    return 0;
+}
